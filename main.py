@@ -148,6 +148,13 @@ def save_post(text, imgname):
 
 
 def main():
+    # Only post 4 times a day at good hours for traffic
+    now = datetime.utcnow()
+    hour = now.hour
+
+    if hour not in [13, 17, 21, 1]:
+        return
+    
     quoteExists = True
     while quoteExists==True:
         response, quote, character, mood = ask_ai()
