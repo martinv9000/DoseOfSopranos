@@ -148,13 +148,17 @@ def save_post(text, imgname):
 
 
 def main():
+    print("Starting script")
     # Only post 4 times a day at good hours for traffic
     now = datetime.utcnow()
     hour = now.hour
 
     if hour not in [13, 17, 21, 1]:
+        print("Not the right time")
         return
-    
+
+    print("Now is the right time")
+    print("Getting quote")
     quoteExists = True
     while quoteExists==True:
         response, quote, character, mood = ask_ai()
@@ -165,17 +169,18 @@ def main():
     
     if mood == "Existential" or "Wise":
         mood == "Other"
-
+    print("Getting image")
     imageExists = True
     while imageExists==True:
         img_name, url_img = get_random_image(character, mood)
         #If imgname exists in database look for new one
         #If imgname does not exist in database, post to X. Set newimage=True
         imageExists = imgname_exists_recently(img_name)
-
+    print("Posting...")
     post(response, url_img)
     # Store quote to database
-    # Store img name to database
+    # Store img name to database\
+    print("Saving to database")
     save_post(quote, img_name)
 
 
