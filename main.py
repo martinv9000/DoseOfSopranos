@@ -162,6 +162,8 @@ def main():
     quoteExists = True
     while quoteExists==True:
         response, quote, character, mood = ask_ai()
+        print(quote)
+        print(character)
         #If quote exists in database look for new one
         #If quote does not exist in database, find image. Set newquote=True
         quoteExists = quote_exists_recently(quote)
