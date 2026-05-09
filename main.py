@@ -168,9 +168,11 @@ def main():
         #If quote does not exist in database, find image. Set newquote=True
         quoteExists = quote_exists_recently(quote)
 
-    
+    print("Checking if mood is existential or wise")
     if mood == "Existential" or "Wise":
         mood == "Other"
+        print("Mood set to other")
+        
     print("Getting image")
     imageExists = True
     while imageExists==True:
