@@ -169,8 +169,8 @@ def main():
         quoteExists = quote_exists_recently(quote)
 
     print("Checking if mood is existential or wise")
-    if mood == "Existential" or "Wise":
-        mood == "Other"
+    if mood in ["Existential", "Wise"]:
+        mood = "Other"
         print("Mood set to other")
         
     print("Getting image")
