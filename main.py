@@ -157,6 +157,10 @@ def main():
         print("Not the right time")
         return
 
+    if random.random() > 0.7:
+        print("sorry bro - we can't get botted")
+        return
+
     print("Now is the right time")
     print("Getting quote")
     quoteExists = True
